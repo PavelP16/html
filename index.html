@@ -1,138 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> <!--Кодировка для Русского языка-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--meta это атрибуты для кодировки-->
-    <meta name="Используется также для поиска(Чтобы проще было найти в баузере, его не видно но он работает"> 
-    <title>Заголовок вкладки</title>
-    <link rel="stylesheet" href=""> <!--Используется для значка(рисунка) на иконке заголовка-->
-    <link rel="stylesheet" href="style.css"><!--Подключаем файл CSS-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <title>JS Game</title>
 </head>
 <body>
-    <h1 class="privet"> Это главный Заголовок</h1> <!--Лучше всего использовать только 1 h1 но можно и множество Так хром будет понимать что это важно-->
-    <h2>Заголовок, но меньшей по значимости</h2> <!--Таких заголовков может быть много-->
-    <!--Каждый загоовок h1-h6 начинается с ной стороки и занимает всю ширину окна-->
-    <p>Абзац тег в нутри тега <br>Это все тотже тег но мы перенесли строку с помощью br</p> <!--br переносит строку-->
-    <p>Можно сделать <b>жирный</b> текст</p> <!-- <b></b> делает жирным текст--> 
-    <p id="index1">Можно сделать текст <em>курсивным</em></p> <!-- <em></em> делает курсивным-->
-    <a href="https://www.youtube.com/watch?v=4jYYHaTwWvY" target="_blank">Кнопка на видео HTML</a> <!--Позволяет перейти по ссылки-->
-    <!--target="имеет 4 варианта
-        _self откроит ссылку в том же окне
-        _blank открывает ссылку в новом окне(это определят локальные настройки
-        _parent открывает ссылку в родительском фрейме, для фрейма в котором ВЫ находитесь
-        _top как и parent значение относится к фреймам
-     -->
-     <br><!--Сделает перехот на новую строку-->
-     <a href="#index1">Якорь на пораграф index1</a> <!--Перенесет на место на странице. 
-        Таким образом можно создать оглавление или когда большая часть на странице.  -->
-
-    <ul class="list"> <!--Создает список-->
-        <li>Список 1</li>
-        <li>Список 2</li>
-        <li> <a href="https://dzen.ru/?yredirect=true" target="_blank">Яндекс</a>Ссылка на сайт</li> 
-    </ul>
-    
-    <ul>
-        <li>Список 3</li>
-        <li>Список 4</li>
-    </ul>
-    <hr> <!--Горизонтальная линия на всю страницу-->
-
-        <!--style Меняет цвет той области к которой мы обращаемся. Сейчас так не делают, но знать надо. -->
-    <!--
-        <style> 
-        table {
-            color: blue;
-        }
-    </style>
-    -->
-
-    <table border="1" class="table-red table-bold"> <!--Создает таблицу. Важно последовательность тегов должна быть такой. border="1" делает рамку-->
-        <thead ><b>Таблица 1</b><!--Создает заголовок таблицы-->
-            <tr>
-                <th>Наиминование фрукта</th> <!--th сделает текс жирным-->
-                <th>Количество</th>
-            </tr>
-        </thead>
-
-        <tbody><!--Создает список в таблице-->
-            <tr> <!--Список 1-->
-                <td>Яблоко</td>
-                <td>2</td>
-            </tr>
-            <tr> <!--Список 2-->
-                <td>Апельсин</td>
-                <td>3</td>
-            </tr>
-        </tbody>
-
-        <tfoot><!--Создает подвал таблице-->
-            <tr>
-                <td colspan="2">Итого: 5</td> <!--colspan="2" Команда объеденяет две ячейки вмести-->
-            </tr>
-        </tfoot>
-    </table>
-
-    <table border="1" class="table-blue"> <!--Создает таблицу. Важно последовательность тегов должна быть такой. border="1" делает рамку-->
 
 
-        <thead ><b>Таблица 2</b>
-            <tr>
-                <th>Наиминование фрукта</th> 
-                <th>Количество</th>
-            </tr>
-        </thead>
+  <div class="app">
+    <div class="app__header">
+      <h1 id="time-header">Время игры: <span id="time">5.0</span></h1>
+      <h1 id="result-header" class="hide">Ваш результат: <span id="result"></span></h1>
+    </div>
+    <div class="app__content">
+      <button class="btn" id="start">Начать</button>
 
-        <tbody>
-            <tr> 
-                <td>Яблоко</td>
-                <td>2</td>
-            </tr>
-            <tr> 
-                <td>Апельсин</td>
-                <td>3</td>
-            </tr>
-        </tbody>
+      <div class="game" id="game"></div>
+    </div>
+    <div class="app__footer">
+      <div class="input">
+        <label for="game-time">Время игры, (сек)</label>
+        <input type="number" id="game-time" min="5" step="1" value="5">
+      </div>
+    </div>
+  </div>
+  
 
-        <tfoot>
-            <tr>
-                <td colspan="2">Итого: 5</td> 
-            </tr>
-        </tfoot>
-    </table>
-
-    <hr><!--Горизонтальная линия на всю страницу-->
-
-    <img src="Относительный.png" height="110" alt=""> <!--Это относительный путь картинки т.к. вставляется с компьютера Важно чтобы они были в одной папке-->
-
-    <img src="D:\JavaScript\Фаил по HTML\Полный.png" height="110" alt=""> <!--Это Обсалютный путь картинки т.к. указывается точное место на компютере-->
-    <br><!--Сделает перехот на новую строку-->
-    <img src="https://images.wallpaperscraft.ru/image/single/les_tuman_derevia_132037_1920x1080.jpg " width="550" alt="">
-<!--
-    Для коректировки размеров картинки используется два варианта в пикселях
-    width=" "  это ширина
-    height=" " это высота
-    Лучше использовать один из вариантов 
--->
-<hr><!--Горизонтальная линия на всю страницу-->
-
-<p>Ввод текста</p>
-<input type="text"> <!--Создание поле ввода текста-->
-<br>
-<p>Только для цифр in</p>
-<input type="number"> <!--Создание поле ввода текста-->
-<br>
-<p>Текст с рамкой в одну строку <input type="text"></p> <!--Создание поле ввода текста-->
-<br>
-<p>Поле для выбора месяца <input type="month"></p> <!--Создание поле ввода месяца-->
-<br>
-
-<form class="" target="_blank" action="https://dzen.ru/?yredirect=true"> <!--Создет кнопку в рамки и перекинет по ссылке после нажатия-->
-<input type="submit" name="" value="Отправить"> 
-</form>
-
-<div class="">Создает блочный класс </div>
-
+  <script src="index.js"></script>
 </body>
 </html>
